@@ -1,0 +1,141 @@
+﻿using System;
+using System.Data;
+using System.Windows.Forms;
+
+namespace DoctorPrescription.EditTables
+{
+    public partial class frmPrescriptionAE : Form
+    {
+        private int Id;
+        public frmPrescriptionAE(int ID)
+        {
+            InitializeComponent();
+            this.Id = ID;
+        }
+        private void LoadDrugData()
+        {
+            this.drugTableAdapter.Fill(this.dataSet1.Drug);
+        }
+        private void LoadPrescriptionData()
+        {
+            prescriptionTableAdapter.FillByID(this.dataSet1.Prescription, Id);
+        }
+        private void LoadPatientData()
+        {
+            this.patientTableAdapter.Fill(this.dataSet1.Patient);
+        }
+        private void LoadPrescription_DrugData()
+        {
+            prescription_DrugTableAdapter.FillByPrescriptionId(this.dataSet1.Prescription_Drug, Id);
+        }
+        private void setup(bool enabled)
+        {
+            bindingNavigatorAddNewItem.Enabled = bindingNavigatorDeleteItem.Enabled = enabled;
+        }
+        private void frmPrescriptionAE_Load(object sender, EventArgs e)
+        {
+
+            LoadDrugData();
+
+            patient_IDComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+
+
+            LoadPatientData();
+
+            if (Id == 0)
+            {
+                prescriptionBindingSource.AddNew();
+                doctor_IDTextBox.Text = Tools.UserName;
+            }
+            else
+            {
+                LoadPrescriptionData();
+                LoadPrescription_DrugData();
+            }
+
+            Tools.setBackgroundGridview(this);
+            setup(false);
+        }
+
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+            if (doctor_IDTextBox.Text == "" || patient_IDComboBox.Text == "")
+            {
+                MessageBox.Show("doctor & patient Error");
+                return;
+            }
+
+            this.Validate();
+            this.prescriptionBindingSource.EndEdit();
+            this.prescriptionTableAdapter.Update(this.dataSet1.Prescription);
+
+            this.prescription_DrugBindingSource.EndEdit();
+            this.prescription_DrugTableAdapter.Update(this.dataSet1.Prescription_Drug);
+
+            DialogResult = DialogResult.OK;
+
+
+        }
+
+        private void prescription_DrugDataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            e.Control.KeyPress -= new KeyPressEventHandler(prescription_DrugDataGridView_KeyPress);
+            if (prescription_DrugDataGridView.CurrentCell.ColumnIndex == 1) //Desired Column
+            {
+                TextBox tb = e.Control as TextBox;
+                if (tb != null)
+                {
+                    tb.KeyPress += new KeyPressEventHandler(prescription_DrugDataGridView_KeyPress);
+                }
+            }
+        }
+
+
+        private void prescription_DrugDataGridView_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
+        {
+            EditTables.frmPrescriptionItemsAE prescriptionItems = new EditTables.frmPrescriptionItemsAE(Id, 0);
+            if (prescriptionItems.ShowDialog() == DialogResult.OK)
+                this.prescription_DrugTableAdapter.FillByPrescriptionId(this.dataSet1.Prescription_Drug, Id);
+        }
+
+        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
+        {
+            if (prescription_DrugBindingSource.Current == null)
+                return;
+            DataSet1.DrugDataTable dt = drugTableAdapter.GetDataByID((int)((DataRowView)prescription_DrugBindingSource.Current)["DrugID"]);
+
+            //(String)((DataRowView)drugTableAdapter.GetDataByID((int)((DataRowView)prescription_DrugBindingSource.Current)["DrugID"])[0])["Name"];
+            if (MessageBox.Show("Are you Sure " + (String)dt.Rows[0]["Name"], "Confirmation", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                this.prescription_DrugTableAdapter.DeleteQuery((int)((DataRowView)prescription_DrugBindingSource.Current)["PrescriptionID"], (int)((DataRowView)prescription_DrugBindingSource.Current)["DrugID"]);
+                this.prescription_DrugTableAdapter.FillByPrescriptionId(this.dataSet1.Prescription_Drug,Id);
+            }
+        }
+
+        private void btnAddPrescription_Click(object sender, EventArgs e)
+        {
+            
+            if (doctor_IDTextBox.Text == "" || patient_IDComboBox.Text == "")
+            {
+                MessageBox.Show("doctor & patient Error");
+                return;
+            }
+
+            this.Validate();
+            this.prescriptionBindingSource.EndEdit();
+            this.prescriptionTableAdapter.Update(this.dataSet1.Prescription);
+
+            Id = (int)((DataRowView)prescriptionBindingSource.Current)["ID"];
+
+            btnAddPrescription.Enabled = false;
+        }
+    }
+}
