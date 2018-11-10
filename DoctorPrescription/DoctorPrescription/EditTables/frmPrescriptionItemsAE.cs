@@ -48,6 +48,7 @@ namespace DoctorPrescription.EditTables
 
         private void btnOk_Click(object sender, EventArgs e)
         {
+
             if (drugIDComboBox.Text == "" || numOfUnitsTextBox.Text == "")
             {
                 MessageBox.Show("doctor & patient Error");
