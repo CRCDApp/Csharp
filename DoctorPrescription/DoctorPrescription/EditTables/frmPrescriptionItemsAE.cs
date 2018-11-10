@@ -49,7 +49,7 @@ namespace DoctorPrescription.EditTables
         private void btnOk_Click(object sender, EventArgs e)
         {
 
-            if (drugIDComboBox.Text == "" || numOfUnitsTextBox.Text == "")
+            if (drugIDComboBox.Text == "" || numOfUnitsMaskedTextBox.Text == "")
             {
                 MessageBox.Show("doctor & patient Error");
                 return;
