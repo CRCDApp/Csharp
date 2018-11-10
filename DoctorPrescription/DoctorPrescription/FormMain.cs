@@ -161,5 +161,20 @@ namespace DoctorPrescription
 
             MessageBox.Show(tmp);
         }
+
+        private void txtSearchDrug_TextChanged(object sender, EventArgs e)
+        {
+            drugBindingSource.Filter = "Name LIKE '%" + txtSearchDrug.Text + "%'";
+        }
+
+        private void txtSearchPrescription_TextChanged(object sender, EventArgs e)
+        {
+            prescriptionBindingSource.Filter = "Doctor_ID LIKE '%" + txtSearchPrescription.Text + "%' OR Patient_ID LIKE '%" + txtSearchPrescription.Text + "%'";
+        }
+
+        private void txtSearchPatient_TextChanged(object sender, EventArgs e)
+        {
+            patientBindingSource.Filter = "UserName LIKE '%" + txtSearchPatient.Text + "%' OR FirstName LIKE '%" + txtSearchPatient.Text + "%' OR LastName LIKE '%" + txtSearchPatient.Text + "%'";
+        }
     }
 }

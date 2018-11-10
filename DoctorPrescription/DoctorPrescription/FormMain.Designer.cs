@@ -102,6 +102,12 @@
             this.btnPrescriptionAdd = new System.Windows.Forms.ToolStripButton();
             this.btnPrescriptionEdit = new System.Windows.Forms.ToolStripButton();
             this.prescriptionTableAdapter = new DoctorPrescription.DataSet1TableAdapters.PrescriptionTableAdapter();
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.txtSearchDrug = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
+            this.txtSearchPrescription = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
+            this.txtSearchPatient = new System.Windows.Forms.ToolStripTextBox();
             this.menuStrip1.SuspendLayout();
             this.PanelPatients.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -283,7 +289,9 @@
             this.bindingNavigatorMoveLastItem,
             this.bindingNavigatorSeparator2,
             this.btnAddPatient,
-            this.btnEditPatient});
+            this.btnEditPatient,
+            this.toolStripLabel4,
+            this.txtSearchPatient});
             this.patientBindingNavigator.Location = new System.Drawing.Point(0, 0);
             this.patientBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.patientBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -472,7 +480,9 @@
             this.toolStripButton4,
             this.toolStripSeparator3,
             this.btnAddDrug,
-            this.btnEditDrug});
+            this.btnEditDrug,
+            this.toolStripLabel2,
+            this.txtSearchDrug});
             this.DrugBindingNavigator.Location = new System.Drawing.Point(0, 0);
             this.DrugBindingNavigator.MoveFirstItem = this.toolStripButton1;
             this.DrugBindingNavigator.MoveLastItem = this.toolStripButton4;
@@ -672,7 +682,9 @@
             this.bindingNavigatorMoveLastItem1,
             this.bindingNavigatorSeparator5,
             this.btnPrescriptionAdd,
-            this.btnPrescriptionEdit});
+            this.btnPrescriptionEdit,
+            this.toolStripLabel3,
+            this.txtSearchPrescription});
             this.PrescriptionbindingNavigator.Location = new System.Drawing.Point(0, 0);
             this.PrescriptionbindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem1;
             this.PrescriptionbindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem1;
@@ -774,6 +786,42 @@
             // prescriptionTableAdapter
             // 
             this.prescriptionTableAdapter.ClearBeforeFill = true;
+            // 
+            // toolStripLabel2
+            // 
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(42, 15);
+            this.toolStripLabel2.Text = "Search";
+            // 
+            // txtSearchDrug
+            // 
+            this.txtSearchDrug.Name = "txtSearchDrug";
+            this.txtSearchDrug.Size = new System.Drawing.Size(100, 23);
+            this.txtSearchDrug.TextChanged += new System.EventHandler(this.txtSearchDrug_TextChanged);
+            // 
+            // toolStripLabel3
+            // 
+            this.toolStripLabel3.Name = "toolStripLabel3";
+            this.toolStripLabel3.Size = new System.Drawing.Size(42, 22);
+            this.toolStripLabel3.Text = "Search";
+            // 
+            // txtSearchPrescription
+            // 
+            this.txtSearchPrescription.Name = "txtSearchPrescription";
+            this.txtSearchPrescription.Size = new System.Drawing.Size(100, 23);
+            this.txtSearchPrescription.TextChanged += new System.EventHandler(this.txtSearchPrescription_TextChanged);
+            // 
+            // toolStripLabel4
+            // 
+            this.toolStripLabel4.Name = "toolStripLabel4";
+            this.toolStripLabel4.Size = new System.Drawing.Size(42, 22);
+            this.toolStripLabel4.Text = "Search";
+            // 
+            // txtSearchPatient
+            // 
+            this.txtSearchPatient.Name = "txtSearchPatient";
+            this.txtSearchPatient.Size = new System.Drawing.Size(100, 23);
+            this.txtSearchPatient.TextChanged += new System.EventHandler(this.txtSearchPatient_TextChanged);
             // 
             // FormMain
             // 
@@ -895,6 +943,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
+        private System.Windows.Forms.ToolStripTextBox txtSearchDrug;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel3;
+        private System.Windows.Forms.ToolStripTextBox txtSearchPrescription;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel4;
+        private System.Windows.Forms.ToolStripTextBox txtSearchPatient;
     }
 }
 
