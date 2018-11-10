@@ -12,7 +12,6 @@ namespace DoctorPrescription.EditTables
             this.Id = ID;
         }
 
-
         private void frmDrugAE_Load(object sender, EventArgs e)
         {
             if (Id == 0)
@@ -23,13 +22,11 @@ namespace DoctorPrescription.EditTables
             {
                 drugTableAdapter.FillByID(this.dataSet1.Drug, Id);
             }
-
         }
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-
-            if (nameTextBox.Text == "" || dose_unitsTextBox.Text == "")
+            if (nameTextBox.Text == "" || dose_unitsMaskedTextBox.Text == "")
             {
                 MessageBox.Show("Name & Dose Error");
                 return;

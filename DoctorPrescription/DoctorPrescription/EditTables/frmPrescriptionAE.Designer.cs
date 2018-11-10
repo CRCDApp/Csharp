@@ -41,6 +41,7 @@
             this.dATEDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.doctor_IDTextBox = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.btnAddPrescription = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -68,7 +69,6 @@
             this.patientTableAdapter = new DoctorPrescription.DataSet1TableAdapters.PatientTableAdapter();
             this.prescription_DrugTableAdapter = new DoctorPrescription.DataSet1TableAdapters.Prescription_DrugTableAdapter();
             this.drugTableAdapter = new DoctorPrescription.DataSet1TableAdapters.DrugTableAdapter();
-            this.btnAddPrescription = new System.Windows.Forms.Button();
             dATELabel = new System.Windows.Forms.Label();
             doctor_IDLabel = new System.Windows.Forms.Label();
             patient_IDLabel = new System.Windows.Forms.Label();
@@ -139,7 +139,7 @@
             this.patient_IDComboBox.Location = new System.Drawing.Point(114, 96);
             this.patient_IDComboBox.Name = "patient_IDComboBox";
             this.patient_IDComboBox.Size = new System.Drawing.Size(121, 21);
-            this.patient_IDComboBox.TabIndex = 15;
+            this.patient_IDComboBox.TabIndex = 2;
             this.patient_IDComboBox.ValueMember = "UserName";
             // 
             // prescriptionBindingSource
@@ -163,7 +163,7 @@
             this.dATEDateTimePicker.Location = new System.Drawing.Point(114, 40);
             this.dATEDateTimePicker.Name = "dATEDateTimePicker";
             this.dATEDateTimePicker.Size = new System.Drawing.Size(200, 20);
-            this.dATEDateTimePicker.TabIndex = 12;
+            this.dATEDateTimePicker.TabIndex = 0;
             // 
             // doctor_IDTextBox
             // 
@@ -172,7 +172,7 @@
             this.doctor_IDTextBox.Location = new System.Drawing.Point(114, 66);
             this.doctor_IDTextBox.Name = "doctor_IDTextBox";
             this.doctor_IDTextBox.Size = new System.Drawing.Size(200, 20);
-            this.doctor_IDTextBox.TabIndex = 14;
+            this.doctor_IDTextBox.TabIndex = 1;
             // 
             // btnCancel
             // 
@@ -180,16 +180,26 @@
             this.btnCancel.Location = new System.Drawing.Point(550, 109);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(112, 23);
-            this.btnCancel.TabIndex = 9;
+            this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            // 
+            // btnAddPrescription
+            // 
+            this.btnAddPrescription.Location = new System.Drawing.Point(550, 34);
+            this.btnAddPrescription.Name = "btnAddPrescription";
+            this.btnAddPrescription.Size = new System.Drawing.Size(112, 23);
+            this.btnAddPrescription.TabIndex = 3;
+            this.btnAddPrescription.Text = "Add Prescription";
+            this.btnAddPrescription.UseVisualStyleBackColor = true;
+            this.btnAddPrescription.Click += new System.EventHandler(this.btnAddPrescription_Click);
             // 
             // btnOk
             // 
             this.btnOk.Location = new System.Drawing.Point(550, 70);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(112, 23);
-            this.btnOk.TabIndex = 8;
+            this.btnOk.TabIndex = 4;
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
@@ -285,7 +295,7 @@
             this.bindingNavigator1.Name = "bindingNavigator1";
             this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
             this.bindingNavigator1.Size = new System.Drawing.Size(746, 25);
-            this.bindingNavigator1.TabIndex = 1;
+            this.bindingNavigator1.TabIndex = 0;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
             // bindingNavigatorCountItem
@@ -409,16 +419,6 @@
             // drugTableAdapter
             // 
             this.drugTableAdapter.ClearBeforeFill = true;
-            // 
-            // btnAddPrescription
-            // 
-            this.btnAddPrescription.Location = new System.Drawing.Point(550, 34);
-            this.btnAddPrescription.Name = "btnAddPrescription";
-            this.btnAddPrescription.Size = new System.Drawing.Size(112, 23);
-            this.btnAddPrescription.TabIndex = 8;
-            this.btnAddPrescription.Text = "Add Prescription";
-            this.btnAddPrescription.UseVisualStyleBackColor = true;
-            this.btnAddPrescription.Click += new System.EventHandler(this.btnAddPrescription_Click);
             // 
             // frmPrescriptionAE
             // 

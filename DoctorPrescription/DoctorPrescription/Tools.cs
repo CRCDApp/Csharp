@@ -7,7 +7,6 @@ using System.Windows.Forms;
 
 namespace DoctorPrescription
 {
-
     public enum UserType
     {
         Doctor,
@@ -22,7 +21,6 @@ namespace DoctorPrescription
     }
     class Tools
     {
-
         public static void setBackgroundGridview(Control controls)
         {
             foreach (Control control in controls.Controls)
@@ -31,7 +29,6 @@ namespace DoctorPrescription
                 else
                     setBackgroundGridview(control);
         }
-
         public static void clearForm(Control controls)
         {
             foreach (Control control in controls.Controls)
