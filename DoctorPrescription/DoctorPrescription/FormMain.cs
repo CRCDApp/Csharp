@@ -22,6 +22,8 @@ namespace DoctorPrescription
             panelDrug.Dock = System.Windows.Forms.DockStyle.None;
             panelPrescription.Visible = false;
             panelPrescription.Dock = System.Windows.Forms.DockStyle.None;
+            panelReport.Dock = System.Windows.Forms.DockStyle.None;
+            panelReport.Visible = false;
             switch (view)
             {
                 case MainView.Drug:
@@ -35,6 +37,10 @@ namespace DoctorPrescription
                 case MainView.Prescription:
                     panelPrescription.Visible = true;
                     panelPrescription.Dock = System.Windows.Forms.DockStyle.Fill;
+                    break;
+                case MainView.Report:
+                    panelReport.Dock = System.Windows.Forms.DockStyle.Fill;
+                    panelReport.Visible = true;
                     break;
                 default:
                     panelPrescription.Visible = true;
@@ -175,6 +181,24 @@ namespace DoctorPrescription
         private void txtSearchPatient_TextChanged(object sender, EventArgs e)
         {
             patientBindingSource.Filter = "UserName LIKE '%" + txtSearchPatient.Text + "%' OR FirstName LIKE '%" + txtSearchPatient.Text + "%' OR LastName LIKE '%" + txtSearchPatient.Text + "%'";
+        }
+
+        private void btnPrescriptionReport_Click(object sender, EventArgs e)
+        {
+            DataSet1TableAdapters.spPatientPrescriptionsTableAdapter pres = new DataSet1TableAdapters.spPatientPrescriptionsTableAdapter();
+            pres.Fill(this.dataSet1.spPatientPrescriptions, Tools.UserName);
+            PatientPrescriptionReports rpt = new PatientPrescriptionReports();
+            rpt.SetDataSource(this.dataSet1);
+            crystalReportViewer1.ReportSource = rpt;
+            View(MainView.Report);
+        }
+
+        private void btnDrugsReport_Click(object sender, EventArgs e)
+        {
+            Report rpt = new Report();
+            rpt.SetDataSource(this.dataSet1);
+            crystalReportViewer1.ReportSource = rpt;
+            View(MainView.Report);
         }
     }
 }

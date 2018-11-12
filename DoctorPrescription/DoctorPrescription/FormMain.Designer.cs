@@ -36,6 +36,8 @@
             this.drugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.patientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.prescriptionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnPrescriptionReport = new System.Windows.Forms.ToolStripMenuItem();
             this.PanelPatients = new System.Windows.Forms.Panel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -59,6 +61,8 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.btnAddPatient = new System.Windows.Forms.ToolStripButton();
             this.btnEditPatient = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
+            this.txtSearchPatient = new System.Windows.Forms.ToolStripTextBox();
             this.panelDrug = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.drugDataGridView = new System.Windows.Forms.DataGridView();
@@ -79,6 +83,8 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.btnAddDrug = new System.Windows.Forms.ToolStripButton();
             this.btnEditDrug = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.txtSearchDrug = new System.Windows.Forms.ToolStripTextBox();
             this.patientTableAdapter = new DoctorPrescription.DataSet1TableAdapters.PatientTableAdapter();
             this.tableAdapterManager = new DoctorPrescription.DataSet1TableAdapters.TableAdapterManager();
             this.drugTableAdapter = new DoctorPrescription.DataSet1TableAdapters.DrugTableAdapter();
@@ -101,13 +107,12 @@
             this.bindingNavigatorSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.btnPrescriptionAdd = new System.Windows.Forms.ToolStripButton();
             this.btnPrescriptionEdit = new System.Windows.Forms.ToolStripButton();
-            this.prescriptionTableAdapter = new DoctorPrescription.DataSet1TableAdapters.PrescriptionTableAdapter();
-            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
-            this.txtSearchDrug = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
             this.txtSearchPrescription = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
-            this.txtSearchPatient = new System.Windows.Forms.ToolStripTextBox();
+            this.prescriptionTableAdapter = new DoctorPrescription.DataSet1TableAdapters.PrescriptionTableAdapter();
+            this.panelReport = new System.Windows.Forms.Panel();
+            this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.btnDrugsReport = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.PanelPatients.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -128,13 +133,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.prescriptionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PrescriptionbindingNavigator)).BeginInit();
             this.PrescriptionbindingNavigator.SuspendLayout();
+            this.panelReport.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.managementToolStripMenuItem});
+            this.managementToolStripMenuItem,
+            this.reportToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1006, 24);
@@ -177,6 +184,22 @@
             this.prescriptionToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.prescriptionToolStripMenuItem.Text = "Prescription";
             this.prescriptionToolStripMenuItem.Click += new System.EventHandler(this.prescriptionToolStripMenuItem_Click);
+            // 
+            // reportToolStripMenuItem
+            // 
+            this.reportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnPrescriptionReport,
+            this.btnDrugsReport});
+            this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
+            this.reportToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.reportToolStripMenuItem.Text = "Report";
+            // 
+            // btnPrescriptionReport
+            // 
+            this.btnPrescriptionReport.Name = "btnPrescriptionReport";
+            this.btnPrescriptionReport.Size = new System.Drawing.Size(180, 22);
+            this.btnPrescriptionReport.Text = "Prescriptions";
+            this.btnPrescriptionReport.Click += new System.EventHandler(this.btnPrescriptionReport_Click);
             // 
             // PanelPatients
             // 
@@ -390,6 +413,18 @@
             this.btnEditPatient.Text = "toolStripButton1";
             this.btnEditPatient.Click += new System.EventHandler(this.btnEditPatient_Click);
             // 
+            // toolStripLabel4
+            // 
+            this.toolStripLabel4.Name = "toolStripLabel4";
+            this.toolStripLabel4.Size = new System.Drawing.Size(42, 22);
+            this.toolStripLabel4.Text = "Search";
+            // 
+            // txtSearchPatient
+            // 
+            this.txtSearchPatient.Name = "txtSearchPatient";
+            this.txtSearchPatient.Size = new System.Drawing.Size(100, 23);
+            this.txtSearchPatient.TextChanged += new System.EventHandler(this.txtSearchPatient_TextChanged);
+            // 
             // panelDrug
             // 
             this.panelDrug.Controls.Add(this.panel2);
@@ -580,6 +615,18 @@
             this.btnEditDrug.Size = new System.Drawing.Size(23, 22);
             this.btnEditDrug.Text = "toolStripButton1";
             this.btnEditDrug.Click += new System.EventHandler(this.btnEditDrug_Click);
+            // 
+            // toolStripLabel2
+            // 
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(42, 15);
+            this.toolStripLabel2.Text = "Search";
+            // 
+            // txtSearchDrug
+            // 
+            this.txtSearchDrug.Name = "txtSearchDrug";
+            this.txtSearchDrug.Size = new System.Drawing.Size(100, 23);
+            this.txtSearchDrug.TextChanged += new System.EventHandler(this.txtSearchDrug_TextChanged);
             // 
             // patientTableAdapter
             // 
@@ -783,22 +830,6 @@
             this.btnPrescriptionEdit.Text = "toolStripButton5";
             this.btnPrescriptionEdit.Click += new System.EventHandler(this.prescriptionEditItem_Click);
             // 
-            // prescriptionTableAdapter
-            // 
-            this.prescriptionTableAdapter.ClearBeforeFill = true;
-            // 
-            // toolStripLabel2
-            // 
-            this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(42, 15);
-            this.toolStripLabel2.Text = "Search";
-            // 
-            // txtSearchDrug
-            // 
-            this.txtSearchDrug.Name = "txtSearchDrug";
-            this.txtSearchDrug.Size = new System.Drawing.Size(100, 23);
-            this.txtSearchDrug.TextChanged += new System.EventHandler(this.txtSearchDrug_TextChanged);
-            // 
             // toolStripLabel3
             // 
             this.toolStripLabel3.Name = "toolStripLabel3";
@@ -811,23 +842,49 @@
             this.txtSearchPrescription.Size = new System.Drawing.Size(100, 23);
             this.txtSearchPrescription.TextChanged += new System.EventHandler(this.txtSearchPrescription_TextChanged);
             // 
-            // toolStripLabel4
+            // prescriptionTableAdapter
             // 
-            this.toolStripLabel4.Name = "toolStripLabel4";
-            this.toolStripLabel4.Size = new System.Drawing.Size(42, 22);
-            this.toolStripLabel4.Text = "Search";
+            this.prescriptionTableAdapter.ClearBeforeFill = true;
             // 
-            // txtSearchPatient
+            // panelReport
             // 
-            this.txtSearchPatient.Name = "txtSearchPatient";
-            this.txtSearchPatient.Size = new System.Drawing.Size(100, 23);
-            this.txtSearchPatient.TextChanged += new System.EventHandler(this.txtSearchPatient_TextChanged);
+            this.panelReport.Controls.Add(this.crystalReportViewer1);
+            this.panelReport.Location = new System.Drawing.Point(728, 429);
+            this.panelReport.Name = "panelReport";
+            this.panelReport.Size = new System.Drawing.Size(200, 100);
+            this.panelReport.TabIndex = 4;
+            // 
+            // crystalReportViewer1
+            // 
+            this.crystalReportViewer1.ActiveViewIndex = -1;
+            this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.crystalReportViewer1.Location = new System.Drawing.Point(0, 0);
+            this.crystalReportViewer1.Name = "crystalReportViewer1";
+            this.crystalReportViewer1.ShowCloseButton = false;
+            this.crystalReportViewer1.ShowCopyButton = false;
+            this.crystalReportViewer1.ShowGroupTreeButton = false;
+            this.crystalReportViewer1.ShowLogo = false;
+            this.crystalReportViewer1.ShowParameterPanelButton = false;
+            this.crystalReportViewer1.ShowRefreshButton = false;
+            this.crystalReportViewer1.Size = new System.Drawing.Size(200, 100);
+            this.crystalReportViewer1.TabIndex = 0;
+            this.crystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
+            // 
+            // btnDrugsReport
+            // 
+            this.btnDrugsReport.Name = "btnDrugsReport";
+            this.btnDrugsReport.Size = new System.Drawing.Size(180, 22);
+            this.btnDrugsReport.Text = "Drugs";
+            this.btnDrugsReport.Click += new System.EventHandler(this.btnDrugsReport_Click);
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1006, 770);
+            this.Controls.Add(this.panelReport);
             this.Controls.Add(this.panelPrescription);
             this.Controls.Add(this.panelDrug);
             this.Controls.Add(this.PanelPatients);
@@ -864,6 +921,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.PrescriptionbindingNavigator)).EndInit();
             this.PrescriptionbindingNavigator.ResumeLayout(false);
             this.PrescriptionbindingNavigator.PerformLayout();
+            this.panelReport.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -949,6 +1007,11 @@
         private System.Windows.Forms.ToolStripTextBox txtSearchPrescription;
         private System.Windows.Forms.ToolStripLabel toolStripLabel4;
         private System.Windows.Forms.ToolStripTextBox txtSearchPatient;
+        private System.Windows.Forms.ToolStripMenuItem reportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem btnPrescriptionReport;
+        private System.Windows.Forms.Panel panelReport;
+        private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
+        private System.Windows.Forms.ToolStripMenuItem btnDrugsReport;
     }
 }
 

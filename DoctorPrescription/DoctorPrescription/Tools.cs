@@ -17,7 +17,8 @@ namespace DoctorPrescription
     {
         Drug,
         Patient,
-        Prescription
+        Prescription,
+        Report
     }
     class Tools
     {

@@ -136,6 +136,7 @@ namespace DoctorPrescription.EditTables
             Id = (int)((DataRowView)prescriptionBindingSource.Current)["ID"];
 
             btnAddPrescription.Enabled = false;
+            setup(true);
         }
     }
 }
