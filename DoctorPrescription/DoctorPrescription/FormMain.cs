@@ -134,7 +134,7 @@ namespace DoctorPrescription
         {
             if (Tools.userType == UserType.Patient)
             {
-                drugToolStripMenuItem.Visible = patientToolStripMenuItem.Visible = false;
+                drugToolStripMenuItem.Visible = patientToolStripMenuItem.Visible = btnDrugsReport.Visible = false;
                 btnPrescriptionAdd.Visible = btnPrescriptionEdit.Visible = false;
             }
             else if (Tools.userType == UserType.Doctor)
