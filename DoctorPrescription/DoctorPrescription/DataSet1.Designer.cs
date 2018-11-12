@@ -6019,8 +6019,8 @@ SELECT ID, DATE, Doctor_ID, Patient_ID FROM Prescription WHERE (ID = @ID)";
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "dbo.spPatientPrescriptions";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Variant, 0, global::System.Data.ParameterDirection.ReturnValue, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserName", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Expr1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserName", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6030,7 +6030,7 @@ SELECT ID, DATE, Doctor_ID, Patient_ID FROM Prescription WHERE (ID = @ID)";
         public virtual int Fill(DataSet1.spPatientPrescriptionsDataTable dataTable, string UserName) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((UserName == null)) {
-                throw new global::System.ArgumentNullException("UserName");
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((string)(UserName));
@@ -6049,7 +6049,7 @@ SELECT ID, DATE, Doctor_ID, Patient_ID FROM Prescription WHERE (ID = @ID)";
         public virtual DataSet1.spPatientPrescriptionsDataTable GetData(string UserName) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((UserName == null)) {
-                throw new global::System.ArgumentNullException("UserName");
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((string)(UserName));
