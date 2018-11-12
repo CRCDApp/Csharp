@@ -31,6 +31,7 @@ namespace DoctorPrescription.EditTables
         private void setup(bool enabled)
         {
             bindingNavigatorAddNewItem.Enabled = bindingNavigatorDeleteItem.Enabled = enabled;
+            btnAddPrescription.Enabled = !enabled;
         }
         private void frmPrescriptionAE_Load(object sender, EventArgs e)
         {
@@ -46,22 +47,26 @@ namespace DoctorPrescription.EditTables
             {
                 prescriptionBindingSource.AddNew();
                 doctor_IDTextBox.Text = Tools.UserName;
+                setup(false);
             }
             else
             {
                 LoadPrescriptionData();
                 LoadPrescription_DrugData();
+                setup(true);
             }
 
             Tools.setBackgroundGridview(this);
-            setup(false);
+            
         }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            if (doctor_IDTextBox.Text == "" || patient_IDComboBox.Text == "")
+            errorProvider1.Clear();
+            if (doctor_IDTextBox.Text.Trim() == "" || patient_IDComboBox.Text.Trim() == "")
             {
                 MessageBox.Show("doctor & patient Error");
+                errorProvider1.SetError(patient_IDComboBox, "Enter Patient UserName!");
                 return;
             }
 
@@ -112,7 +117,6 @@ namespace DoctorPrescription.EditTables
                 return;
             DataSet1.DrugDataTable dt = drugTableAdapter.GetDataByID((int)((DataRowView)prescription_DrugBindingSource.Current)["DrugID"]);
 
-            //(String)((DataRowView)drugTableAdapter.GetDataByID((int)((DataRowView)prescription_DrugBindingSource.Current)["DrugID"])[0])["Name"];
             if (MessageBox.Show("Are you Sure " + (String)dt.Rows[0]["Name"], "Confirmation", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 this.prescription_DrugTableAdapter.DeleteQuery((int)((DataRowView)prescription_DrugBindingSource.Current)["PrescriptionID"], (int)((DataRowView)prescription_DrugBindingSource.Current)["DrugID"]);
@@ -122,10 +126,11 @@ namespace DoctorPrescription.EditTables
 
         private void btnAddPrescription_Click(object sender, EventArgs e)
         {
-            
-            if (doctor_IDTextBox.Text == "" || patient_IDComboBox.Text == "")
+            errorProvider1.Clear();
+            if (doctor_IDTextBox.Text.Trim() == "" || patient_IDComboBox.Text.Trim() == "")
             {
                 MessageBox.Show("doctor & patient Error");
+                errorProvider1.SetError(patient_IDComboBox, "Enter Patient UserName!");
                 return;
             }
 
@@ -135,7 +140,6 @@ namespace DoctorPrescription.EditTables
 
             Id = (int)((DataRowView)prescriptionBindingSource.Current)["ID"];
 
-            btnAddPrescription.Enabled = false;
             setup(true);
         }
     }

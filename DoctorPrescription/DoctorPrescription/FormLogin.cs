@@ -44,7 +44,7 @@ namespace DoctorPrescription
         }
         private void btnOK_Click(object sender, EventArgs e)
         {
-            if (txtUserName.Text == "" || txtPassword.Text == "")
+            if (txtUserName.Text.Trim() == "" || txtPassword.Text.Trim() == "")
             {
                 MessageBox.Show("Username or Password Empty");
                 Tools.clearForm(this);

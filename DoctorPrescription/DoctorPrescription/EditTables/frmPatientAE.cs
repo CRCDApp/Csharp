@@ -27,7 +27,7 @@ namespace DoctorPrescription.EditTables
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            if (userNameTextBox.Text == "" || passwordTextBox.Text == "")
+            if (userNameTextBox.Text.Trim() == "" || passwordTextBox.Text.Trim() == "")
             {
                 MessageBox.Show("Username & password Error");
                 return;
@@ -36,7 +36,7 @@ namespace DoctorPrescription.EditTables
             DataSet1TableAdapters.PatientTableAdapter patient = new DataSet1TableAdapters.PatientTableAdapter();
             DataSet1.PatientDataTable dt = patient.GetDataByUserName(userNameTextBox.Text);
 
-            if (dt.Rows.Count > 0 && UserName == "")
+            if (dt.Rows.Count > 0 && UserName.Trim() == "")
             {
                 MessageBox.Show("Username Error");
                 return;
