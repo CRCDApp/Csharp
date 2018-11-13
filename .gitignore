@@ -1,1 +1,4 @@
 DoctorPrescription/.vs/DoctorPrescription/v15/Server/sqlite3/db.lock
+*.ide-shm
+*.ide
+*.ide-wal
