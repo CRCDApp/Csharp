@@ -12,22 +12,10 @@ namespace DoctorPrescription.EditTables
             InitializeComponent();
             this.Id = ID;
         }
-        private void LoadDrugData()
-        {
-            this.drugTableAdapter.Fill(this.dataSet1.Drug);
-        }
-        private void LoadPrescriptionData()
-        {
-            prescriptionTableAdapter.FillByID(this.dataSet1.Prescription, Id);
-        }
-        private void LoadPatientData()
-        {
-            this.patientTableAdapter.Fill(this.dataSet1.Patient);
-        }
-        private void LoadPrescription_DrugData()
-        {
-            prescription_DrugTableAdapter.FillByPrescriptionId(this.dataSet1.Prescription_Drug, Id);
-        }
+        private void LoadDrugData() => drugTableAdapter.Fill(dataSet1.Drug);
+        private void LoadPrescriptionData() => prescriptionTableAdapter.FillByID(dataSet1.Prescription, Id);
+        private void LoadPatientData() => patientTableAdapter.Fill(dataSet1.Patient);
+        private void LoadPrescription_DrugData() => prescription_DrugTableAdapter.FillByPrescriptionId(dataSet1.Prescription_Drug, Id);
         private void setup(bool enabled)
         {
             bindingNavigatorAddNewItem.Enabled = bindingNavigatorDeleteItem.Enabled = enabled;
@@ -39,7 +27,6 @@ namespace DoctorPrescription.EditTables
             LoadDrugData();
 
             patient_IDComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
-
 
             LoadPatientData();
 
@@ -57,7 +44,6 @@ namespace DoctorPrescription.EditTables
             }
 
             Tools.setBackgroundGridview(this);
-            
         }
 
         private void btnOk_Click(object sender, EventArgs e)
@@ -73,7 +59,6 @@ namespace DoctorPrescription.EditTables
             this.Validate();
             this.prescriptionBindingSource.EndEdit();
             this.prescriptionTableAdapter.Update(this.dataSet1.Prescription);
-
             this.prescription_DrugBindingSource.EndEdit();
             this.prescription_DrugTableAdapter.Update(this.dataSet1.Prescription_Drug);
 

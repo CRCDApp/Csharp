@@ -6,10 +6,7 @@ namespace DoctorPrescription
 {
     public partial class FormLogin : Form
     {
-        public FormLogin()
-        {
-            InitializeComponent();
-        }
+        public FormLogin() => InitializeComponent();
 
         private bool IsDoctor()
         {

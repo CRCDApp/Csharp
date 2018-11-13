@@ -6,14 +6,8 @@ namespace DoctorPrescription
 {
     public partial class FormMain : Form
     {
-        public FormMain()
-        {
-            InitializeComponent();
-        }
-        private void LoadPatientData()
-        {
-            this.patientTableAdapter.Fill(this.dataSet1.Patient);
-        }
+        public FormMain() => InitializeComponent();
+        private void LoadPatientData() => this.patientTableAdapter.Fill(this.dataSet1.Patient);
         private void View(MainView view)
         {
             PanelPatients.Visible = false;
@@ -59,15 +53,9 @@ namespace DoctorPrescription
                 this.prescriptionTableAdapter.FillByPatientId(this.dataSet1.Prescription, Tools.UserName);
         }
 
-        private void drugToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            View(MainView.Drug);
-        }
+        private void drugToolStripMenuItem_Click(object sender, EventArgs e) => View(MainView.Drug);
 
-        private void LoadDrugData()
-        {
-            this.drugTableAdapter.Fill(this.dataSet1.Drug);
-        }
+        private void LoadDrugData() => drugTableAdapter.Fill(dataSet1.Drug);
 
         private void FormMain_Load(object sender, EventArgs e)
         {
@@ -113,15 +101,9 @@ namespace DoctorPrescription
                 LoadDrugData();
         }
 
-        private void patientToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            View(MainView.Patient);
-        }
+        private void patientToolStripMenuItem_Click(object sender, EventArgs e) => View(MainView.Patient);
 
-        private void prescriptionToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            View(MainView.Prescription);
-        }
+        private void prescriptionToolStripMenuItem_Click(object sender, EventArgs e) => View(MainView.Prescription);
 
         private void prescriptionAddNewItem_Click(object sender, EventArgs e)
         {
@@ -168,20 +150,11 @@ namespace DoctorPrescription
             MessageBox.Show(tmp);
         }
 
-        private void txtSearchDrug_TextChanged(object sender, EventArgs e)
-        {
-            drugBindingSource.Filter = "Name LIKE '%" + txtSearchDrug.Text + "%'";
-        }
+        private void txtSearchDrug_TextChanged(object sender, EventArgs e) => drugBindingSource.Filter = "Name LIKE '%" + txtSearchDrug.Text + "%'";
 
-        private void txtSearchPrescription_TextChanged(object sender, EventArgs e)
-        {
-            prescriptionBindingSource.Filter = "Doctor_ID LIKE '%" + txtSearchPrescription.Text + "%' OR Patient_ID LIKE '%" + txtSearchPrescription.Text + "%'";
-        }
+        private void TxtSearchPrescription_TextChanged(object sender, EventArgs e) => prescriptionBindingSource.Filter = "Doctor_ID LIKE '%" + txtSearchPrescription.Text + "%' OR Patient_ID LIKE '%" + txtSearchPrescription.Text + "%'";
 
-        private void txtSearchPatient_TextChanged(object sender, EventArgs e)
-        {
-            patientBindingSource.Filter = "UserName LIKE '%" + txtSearchPatient.Text + "%' OR FirstName LIKE '%" + txtSearchPatient.Text + "%' OR LastName LIKE '%" + txtSearchPatient.Text + "%'";
-        }
+        private void TxtSearchPatient_TextChanged(object sender, EventArgs e) => patientBindingSource.Filter = "UserName LIKE '%" + txtSearchPatient.Text + "%' OR FirstName LIKE '%" + txtSearchPatient.Text + "%' OR LastName LIKE '%" + txtSearchPatient.Text + "%'";
 
         private void btnPrescriptionReport_Click(object sender, EventArgs e)
         {
@@ -200,5 +173,10 @@ namespace DoctorPrescription
             crystalReportViewer1.ReportSource = rpt;
             View(MainView.Report);
         }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e) => Application.Exit();
+
+        private void SignOutToolStripMenuItem_Click(object sender, EventArgs e) => Application.Restart();
+
     }
 }
