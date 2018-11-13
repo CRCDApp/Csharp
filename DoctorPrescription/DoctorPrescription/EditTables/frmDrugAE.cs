@@ -26,7 +26,7 @@ namespace DoctorPrescription.EditTables
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            if (nameTextBox.Text == "" || dose_unitsMaskedTextBox.Text == "")
+            if (nameTextBox.Text.Trim() == "" || dose_unitsMaskedTextBox.Text.Trim() == "")
             {
                 MessageBox.Show("Name & Dose Error");
                 return;

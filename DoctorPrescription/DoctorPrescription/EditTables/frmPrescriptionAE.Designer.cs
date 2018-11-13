@@ -69,6 +69,7 @@
             this.patientTableAdapter = new DoctorPrescription.DataSet1TableAdapters.PatientTableAdapter();
             this.prescription_DrugTableAdapter = new DoctorPrescription.DataSet1TableAdapters.Prescription_DrugTableAdapter();
             this.drugTableAdapter = new DoctorPrescription.DataSet1TableAdapters.DrugTableAdapter();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             dATELabel = new System.Windows.Forms.Label();
             doctor_IDLabel = new System.Windows.Forms.Label();
             patient_IDLabel = new System.Windows.Forms.Label();
@@ -84,6 +85,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.doctorBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // dATELabel
@@ -420,6 +422,10 @@
             // 
             this.drugTableAdapter.ClearBeforeFill = true;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // frmPrescriptionAE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -450,6 +456,7 @@
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.doctorBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -492,5 +499,6 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.Button btnAddPrescription;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

@@ -38,6 +38,7 @@
             this.prescriptionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnPrescriptionReport = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnDrugsReport = new System.Windows.Forms.ToolStripMenuItem();
             this.PanelPatients = new System.Windows.Forms.Panel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -112,7 +113,8 @@
             this.prescriptionTableAdapter = new DoctorPrescription.DataSet1TableAdapters.PrescriptionTableAdapter();
             this.panelReport = new System.Windows.Forms.Panel();
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.btnDrugsReport = new System.Windows.Forms.ToolStripMenuItem();
+            this.signOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.PanelPatients.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -150,6 +152,9 @@
             // 
             // fileToolStripMenuItem
             // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.signOutToolStripMenuItem,
+            this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -197,9 +202,16 @@
             // btnPrescriptionReport
             // 
             this.btnPrescriptionReport.Name = "btnPrescriptionReport";
-            this.btnPrescriptionReport.Size = new System.Drawing.Size(180, 22);
+            this.btnPrescriptionReport.Size = new System.Drawing.Size(142, 22);
             this.btnPrescriptionReport.Text = "Prescriptions";
             this.btnPrescriptionReport.Click += new System.EventHandler(this.btnPrescriptionReport_Click);
+            // 
+            // btnDrugsReport
+            // 
+            this.btnDrugsReport.Name = "btnDrugsReport";
+            this.btnDrugsReport.Size = new System.Drawing.Size(142, 22);
+            this.btnDrugsReport.Text = "Drugs";
+            this.btnDrugsReport.Click += new System.EventHandler(this.btnDrugsReport_Click);
             // 
             // PanelPatients
             // 
@@ -423,7 +435,7 @@
             // 
             this.txtSearchPatient.Name = "txtSearchPatient";
             this.txtSearchPatient.Size = new System.Drawing.Size(100, 23);
-            this.txtSearchPatient.TextChanged += new System.EventHandler(this.txtSearchPatient_TextChanged);
+            this.txtSearchPatient.TextChanged += new System.EventHandler(this.TxtSearchPatient_TextChanged);
             // 
             // panelDrug
             // 
@@ -840,7 +852,7 @@
             // 
             this.txtSearchPrescription.Name = "txtSearchPrescription";
             this.txtSearchPrescription.Size = new System.Drawing.Size(100, 23);
-            this.txtSearchPrescription.TextChanged += new System.EventHandler(this.txtSearchPrescription_TextChanged);
+            this.txtSearchPrescription.TextChanged += new System.EventHandler(this.TxtSearchPrescription_TextChanged);
             // 
             // prescriptionTableAdapter
             // 
@@ -872,12 +884,19 @@
             this.crystalReportViewer1.TabIndex = 0;
             this.crystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
-            // btnDrugsReport
+            // signOutToolStripMenuItem
             // 
-            this.btnDrugsReport.Name = "btnDrugsReport";
-            this.btnDrugsReport.Size = new System.Drawing.Size(180, 22);
-            this.btnDrugsReport.Text = "Drugs";
-            this.btnDrugsReport.Click += new System.EventHandler(this.btnDrugsReport_Click);
+            this.signOutToolStripMenuItem.Name = "signOutToolStripMenuItem";
+            this.signOutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.signOutToolStripMenuItem.Text = "Sign out";
+            this.signOutToolStripMenuItem.Click += new System.EventHandler(this.SignOutToolStripMenuItem_Click);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // FormMain
             // 
@@ -1012,6 +1031,8 @@
         private System.Windows.Forms.Panel panelReport;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
         private System.Windows.Forms.ToolStripMenuItem btnDrugsReport;
+        private System.Windows.Forms.ToolStripMenuItem signOutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
     }
 }
 

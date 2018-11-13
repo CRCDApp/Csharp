@@ -3620,7 +3620,8 @@ SELECT UserName, Password, FirstName, LastName, PhoneNumber, IsAdmin FROM Doctor
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "SELECT UserName, Password, FirstName, LastName, PhoneNumber, IsAdmin FROM dbo.Doc" +
-                "tor\r\nWHERE UserName=@UserName AND Password=@Password";
+                "tor\r\nWHERE UserName=@UserName AND Password=@Password COLLATE SQL_Latin1_General_" +
+                "Cp1_CS_AS";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserName", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "UserName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Password", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -4966,7 +4967,8 @@ SELECT UserName, Password, FirstName, LastName, Address, Date_Of_Birth, Sex FROM
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "SELECT UserName, Password, FirstName, LastName, Address, Date_Of_Birth, Sex FROM " +
-                "dbo.Patient\r\nWHERE UserName=@username AND Password=@password";
+                "dbo.Patient\r\nWHERE UserName=@username AND Password=@password COLLATE SQL_Latin1_" +
+                "General_Cp1_CS_AS";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@username", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "UserName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@password", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
