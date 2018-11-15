@@ -3,5 +3,8 @@ DoctorPrescription/.vs/DoctorPrescription/v15/Server/sqlite3/db.lock
 *.ide
 *.ide-wal
 DoctorPrescription/DoctorPrescription/FormMain.Designer.cs.rej
+<<<<<<< HEAD
 DoctorPrescription/DoctorPrescription/obj/Debug/DoctorPrescription.FormMain.resources
 DoctorPrescription/DoctorPrescription/obj/Debug/DoctorPrescription.Properties.Resources.resources
+=======
+>>>>>>> ignore
