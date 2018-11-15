@@ -62,8 +62,6 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnAddPatient = new System.Windows.Forms.ToolStripButton();
-            this.btnEditPatient = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
             this.txtSearchPatient = new System.Windows.Forms.ToolStripTextBox();
             this.panelDrug = new System.Windows.Forms.Panel();
@@ -115,6 +113,8 @@
             this.prescriptionTableAdapter = new DoctorPrescription.DataSet1TableAdapters.PrescriptionTableAdapter();
             this.panelReport = new System.Windows.Forms.Panel();
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.btnAddPatient = new System.Windows.Forms.ToolStripButton();
+            this.btnEditPatient = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.PanelPatients.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -162,14 +162,14 @@
             // signOutToolStripMenuItem
             // 
             this.signOutToolStripMenuItem.Name = "signOutToolStripMenuItem";
-            this.signOutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.signOutToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.signOutToolStripMenuItem.Text = "Sign out";
             this.signOutToolStripMenuItem.Click += new System.EventHandler(this.SignOutToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -418,26 +418,6 @@
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // btnAddPatient
-            // 
-            this.btnAddPatient.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnAddPatient.Image = ((System.Drawing.Image)(resources.GetObject("btnAddPatient.Image")));
-            this.btnAddPatient.Name = "btnAddPatient";
-            this.btnAddPatient.RightToLeftAutoMirrorImage = true;
-            this.btnAddPatient.Size = new System.Drawing.Size(23, 22);
-            this.btnAddPatient.Text = "Add new";
-            this.btnAddPatient.Click += new System.EventHandler(this.btnAddPatient_Click);
-            // 
-            // btnEditPatient
-            // 
-            this.btnEditPatient.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnEditPatient.Image = global::DoctorPrescription.Properties.Resources.ediiit;
-            this.btnEditPatient.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnEditPatient.Name = "btnEditPatient";
-            this.btnEditPatient.Size = new System.Drawing.Size(23, 22);
-            this.btnEditPatient.Text = "toolStripButton1";
-            this.btnEditPatient.Click += new System.EventHandler(this.btnEditPatient_Click);
             // 
             // toolStripLabel4
             // 
@@ -898,6 +878,26 @@
             this.crystalReportViewer1.TabIndex = 0;
             this.crystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
+            // btnAddPatient
+            // 
+            this.btnAddPatient.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnAddPatient.Image = ((System.Drawing.Image)(resources.GetObject("btnAddPatient.Image")));
+            this.btnAddPatient.Name = "btnAddPatient";
+            this.btnAddPatient.RightToLeftAutoMirrorImage = true;
+            this.btnAddPatient.Size = new System.Drawing.Size(23, 22);
+            this.btnAddPatient.Text = "Add new";
+            this.btnAddPatient.Click += new System.EventHandler(this.btnAddPatient_Click);
+            // 
+            // btnEditPatient
+            // 
+            this.btnEditPatient.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnEditPatient.Image = global::DoctorPrescription.Properties.Resources.ediiit;
+            this.btnEditPatient.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnEditPatient.Name = "btnEditPatient";
+            this.btnEditPatient.Size = new System.Drawing.Size(23, 22);
+            this.btnEditPatient.Text = "toolStripButton5";
+            this.btnEditPatient.Click += new System.EventHandler(this.btnEditPatient_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -958,7 +958,6 @@
         private DataSet1TableAdapters.PatientTableAdapter patientTableAdapter;
         private DataSet1TableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.BindingNavigator patientBindingNavigator;
-        private System.Windows.Forms.ToolStripButton btnAddPatient;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
@@ -968,7 +967,6 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-        private System.Windows.Forms.ToolStripButton btnEditPatient;
         private System.Windows.Forms.Panel panelDrug;
         private System.Windows.Forms.BindingSource drugBindingSource;
         private DataSet1TableAdapters.DrugTableAdapter drugTableAdapter;
@@ -1033,6 +1031,8 @@
         private System.Windows.Forms.ToolStripMenuItem btnDrugsReport;
         private System.Windows.Forms.ToolStripMenuItem signOutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton btnAddPatient;
+        private System.Windows.Forms.ToolStripButton btnEditPatient;
     }
 }
 

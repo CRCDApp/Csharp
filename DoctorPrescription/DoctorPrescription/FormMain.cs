@@ -177,6 +177,5 @@ namespace DoctorPrescription
         private void exitToolStripMenuItem_Click(object sender, EventArgs e) => Application.Exit();
 
         private void SignOutToolStripMenuItem_Click(object sender, EventArgs e) => Application.Restart();
-
     }
 }
