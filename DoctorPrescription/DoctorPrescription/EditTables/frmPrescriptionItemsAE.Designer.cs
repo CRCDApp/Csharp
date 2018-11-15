@@ -57,6 +57,15 @@
             drugIDLabel.TabIndex = 8;
             drugIDLabel.Text = "Drug ID:";
             // 
+            // numOfUnitsLabel
+            // 
+            numOfUnitsLabel.AutoSize = true;
+            numOfUnitsLabel.Location = new System.Drawing.Point(35, 55);
+            numOfUnitsLabel.Name = "numOfUnitsLabel";
+            numOfUnitsLabel.Size = new System.Drawing.Size(73, 13);
+            numOfUnitsLabel.TabIndex = 8;
+            numOfUnitsLabel.Text = "Num Of Units:";
+            // 
             // btnOk
             // 
             this.btnOk.Location = new System.Drawing.Point(145, 94);
@@ -122,15 +131,6 @@
             // 
             this.drugTableAdapter.ClearBeforeFill = true;
             // 
-            // numOfUnitsLabel
-            // 
-            numOfUnitsLabel.AutoSize = true;
-            numOfUnitsLabel.Location = new System.Drawing.Point(35, 55);
-            numOfUnitsLabel.Name = "numOfUnitsLabel";
-            numOfUnitsLabel.Size = new System.Drawing.Size(73, 13);
-            numOfUnitsLabel.TabIndex = 8;
-            numOfUnitsLabel.Text = "Num Of Units:";
-            // 
             // numOfUnitsMaskedTextBox
             // 
             this.numOfUnitsMaskedTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.prescription_DrugBindingSource, "NumOfUnits", true));
@@ -138,11 +138,12 @@
             this.numOfUnitsMaskedTextBox.Mask = "00";
             this.numOfUnitsMaskedTextBox.Name = "numOfUnitsMaskedTextBox";
             this.numOfUnitsMaskedTextBox.Size = new System.Drawing.Size(100, 20);
-            this.numOfUnitsMaskedTextBox.TabIndex = 9;
+            this.numOfUnitsMaskedTextBox.TabIndex = 1;
             this.numOfUnitsMaskedTextBox.ValidatingType = typeof(int);
             // 
             // frmPrescriptionItemsAE
             // 
+            this.AcceptButton = this.btnOk;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;

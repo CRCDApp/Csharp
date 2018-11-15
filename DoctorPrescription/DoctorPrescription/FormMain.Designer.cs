@@ -62,6 +62,8 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnAddPatient = new System.Windows.Forms.ToolStripButton();
+            this.btnEditPatient = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
             this.txtSearchPatient = new System.Windows.Forms.ToolStripTextBox();
             this.panelDrug = new System.Windows.Forms.Panel();
@@ -113,8 +115,6 @@
             this.prescriptionTableAdapter = new DoctorPrescription.DataSet1TableAdapters.PrescriptionTableAdapter();
             this.panelReport = new System.Windows.Forms.Panel();
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.btnAddPatient = new System.Windows.Forms.ToolStripButton();
-            this.btnEditPatient = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.PanelPatients.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -418,6 +418,26 @@
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // btnAddPatient
+            // 
+            this.btnAddPatient.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnAddPatient.Image = ((System.Drawing.Image)(resources.GetObject("btnAddPatient.Image")));
+            this.btnAddPatient.Name = "btnAddPatient";
+            this.btnAddPatient.RightToLeftAutoMirrorImage = true;
+            this.btnAddPatient.Size = new System.Drawing.Size(23, 22);
+            this.btnAddPatient.Text = "Add new";
+            this.btnAddPatient.Click += new System.EventHandler(this.btnAddPatient_Click);
+            // 
+            // btnEditPatient
+            // 
+            this.btnEditPatient.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnEditPatient.Image = global::DoctorPrescription.Properties.Resources.ediiit;
+            this.btnEditPatient.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnEditPatient.Name = "btnEditPatient";
+            this.btnEditPatient.Size = new System.Drawing.Size(23, 22);
+            this.btnEditPatient.Text = "toolStripButton5";
+            this.btnEditPatient.Click += new System.EventHandler(this.btnEditPatient_Click);
             // 
             // toolStripLabel4
             // 
@@ -878,26 +898,6 @@
             this.crystalReportViewer1.TabIndex = 0;
             this.crystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
-            // btnAddPatient
-            // 
-            this.btnAddPatient.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnAddPatient.Image = ((System.Drawing.Image)(resources.GetObject("btnAddPatient.Image")));
-            this.btnAddPatient.Name = "btnAddPatient";
-            this.btnAddPatient.RightToLeftAutoMirrorImage = true;
-            this.btnAddPatient.Size = new System.Drawing.Size(23, 22);
-            this.btnAddPatient.Text = "Add new";
-            this.btnAddPatient.Click += new System.EventHandler(this.btnAddPatient_Click);
-            // 
-            // btnEditPatient
-            // 
-            this.btnEditPatient.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnEditPatient.Image = global::DoctorPrescription.Properties.Resources.ediiit;
-            this.btnEditPatient.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnEditPatient.Name = "btnEditPatient";
-            this.btnEditPatient.Size = new System.Drawing.Size(23, 22);
-            this.btnEditPatient.Text = "toolStripButton5";
-            this.btnEditPatient.Click += new System.EventHandler(this.btnEditPatient_Click);
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -911,7 +911,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Prescription Application";
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
