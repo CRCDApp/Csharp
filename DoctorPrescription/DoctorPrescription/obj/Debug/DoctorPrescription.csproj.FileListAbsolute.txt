@@ -47,3 +47,4 @@ C:\Users\amirh\Documents\Csharp\DoctorPrescription\DoctorPrescription\obj\Debug\
 C:\Users\amirh\Documents\Csharp\DoctorPrescription\DoctorPrescription\obj\Debug\DoctorPrescription.csproj.CopyComplete
 C:\Users\amirh\Documents\Csharp\DoctorPrescription\DoctorPrescription\obj\Debug\DoctorPrescription.exe
 C:\Users\amirh\Documents\Csharp\DoctorPrescription\DoctorPrescription\obj\Debug\DoctorPrescription.pdb
+C:\Users\amirh\Documents\Csharp\DoctorPrescription\DoctorPrescription\obj\Debug\DoctorPrescription.csprojAssemblyReference.cache
